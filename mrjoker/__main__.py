@@ -79,13 +79,14 @@ NEZUKO1_IMG = "https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg"
 
 PM_START_TEXT = """
 ────『 **{}** 』────
-*Hola! {},*
-*I am called {}, God of Pokemons.*
+Hey there, {}!
+I am called {}, Also Called Sister Of @TanjiroKamadoXBot
 ┏━━━━━━━━━━━━━━━━
-┣ ₪ *Uptime:* `{}`
-┣ ₪ `{}` *users, across* `{}` *chats.*
+┣ ♅ *Uptime:* `{}`
+┣ ♅ `{}` *users, across* `{}` *chats.*
 ┗━━━━━━━━━━━━━━━━━
-Need Help ? Use /help [!](https://telegra.ph/file/83b57abefc2dfd3c5ef27.jpg)
+Check My Elder Brother [დ Tanjiro](t.me/TanjiroKamadoXBot) | Click /help for help window.
+⌠ [Setup Protocol](https://t.me/TanjiroXNezukoUpdates/3) | [Updates](https://t.me/TanjiroXNezukoUpdates) | [Support](http://t.me/NezukoXTanjiroChat) ⌡
 """
 
 STICKERS = (
@@ -101,21 +102,16 @@ STICKERS = (
 buttons = [
     [
                         InlineKeyboardButton(
-                            text=f"⌖ Add Nezoku Robot To Your Group ⌖",
+                            text=f"♅ Add Nezoku Robot To Your Group ♅",
                             url=f"t.me/NezukoKamadoXBot?startgroup=true")
                     ],
-                   [
-                       InlineKeyboardButton(text="[⍟ Help ⍟]", callback_data="mrjoker_back"),
-                       InlineKeyboardButton(text="[⍟ Logs]", url="https://t.me/PegasusLogs"),
-                       InlineKeyboardButton(text="[⍟ R Logs]", url="https://t.me/ArceusRenamerLogs"),
-                     ],
                     [                  
                        InlineKeyboardButton(
                              text="⌥ Support",
-                             url="https://t.me/PegasusSupportOfficial"),
+                             url="https://t.me/NezukoXTanjiroChat"),
                        InlineKeyboardButton(
                              text="⌥ Updates",
-                             url="https://t.me/PegasusUpdates")
+                             url="https://t.me/TanjiroXNezukoUpdates")
                       
                      ], 
     ] 
@@ -351,7 +347,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
                 ),
             )
 
@@ -417,7 +413,7 @@ def mrjoker_about_callback(update, context):
                             text="🇱🇰𝗛𝗜𝗧𝗘𝗖𝗛 𝗚𝗥𝗢𝗨𝗣", url="https://t.me/hitechlkgroup"
                         ),
                     ],
-                    [InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="mrjoker_back")],
+                        [InlineKeyboardButton(text="⬅️ Back", callback_data="mrjoker_back")],
                 ]
             ),
         )
@@ -454,7 +450,7 @@ def mrjoker_about_callback(update, context):
                     InlineKeyboardButton(text="𝐆𝐎 𝐈𝐍𝐋𝐈𝐍𝐄 ↗️", switch_inline_query_current_chat=""),
                  ],
                  [
-                    InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="mrjoker_back"),
+                    InlineKeyboardButton(text="⬅️ Back", callback_data="mrjoker_back"),
                  
                  ]
                 ]
@@ -473,7 +469,7 @@ def mrjoker_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="mrjoker_basichelp")]]
+                [[InlineKeyboardButton(text="⬅️ Back", callback_data="mrjoker_basichelp")]]
             ),
         )
 
@@ -485,7 +481,7 @@ def mrjoker_about_callback(update, context):
             f"\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text= "⬅️ 𝗕𝗔𝗖𝗞", callback_data="mrjoker_basichelp")]]
+                [[InlineKeyboardButton(text= "⬅️ Back", callback_data="mrjoker_basichelp")]]
             ),
         )
         
@@ -537,7 +533,7 @@ def Source_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="source_back")
+                    InlineKeyboardButton(text="⬅️ Back", callback_data="source_back")
                  ]
                 ]
             ),
@@ -609,7 +605,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
             ),
         )
 
@@ -682,7 +678,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⬅️ 𝗕𝗔𝗖𝗞",
+                                text="⬅️ Back",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
