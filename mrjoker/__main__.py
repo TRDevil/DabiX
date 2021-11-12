@@ -118,7 +118,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-{} is here! 
+Nezuko is here! 
 I Use My Powers To Help Admins To Manage Their Groups! 
 *Main* commands available :
  • /help: PM's you this message.
