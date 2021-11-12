@@ -223,7 +223,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="⬅️ 𝗕𝗔𝗖𝗞", callback_data="help_back")]]
+                            [[InlineKeyboardButton(text="⬅️ Back", callback_data="help_back")]]
                     ),
                 )
 
@@ -341,7 +341,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "❮❮❮❮🤡 𝗠𝗿.𝗝𝗼𝗸𝗲𝗿 𝗛𝗲𝗹𝗽 𝗳𝗼𝗿 *{}* 𝗺𝗼𝗱𝘂𝗹𝗲 🤡❯❯❯❯:\n".format(
+                "Help for Nezuko Module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -832,7 +832,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "𝙄 𝘼ᴍ 𝘼ʟɪᴠᴇ 🤡")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "𝙄 𝘼ᴍ 𝑶ɴʟɪɴᴇ 𝑵ᴏᴡ ")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
