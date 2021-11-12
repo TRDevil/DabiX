@@ -75,7 +75,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 NEZUKO_IMG = "https://telegra.ph/file/f312365663c7ae0207b88.jpg"
-NEZUKO = "https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg"
+NEZUKO1_IMG = "https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg"
 
 PM_START_TEXT = """
 ────『 {} 』────
@@ -260,7 +260,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            NEZOKU, caption= "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            NEZUKO1_IMG, caption= "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
