@@ -78,7 +78,7 @@ NEZUKO_IMG = "https://telegra.ph/file/f312365663c7ae0207b88.jpg"
 NEZUKO1_IMG = "https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg"
 
 PM_START_TEXT = """
-────『 {} 』────
+────『 **{}** 』────
 *Hola! {},*
 *I am called {}, God of Pokemons.*
 ┏━━━━━━━━━━━━━━━━
@@ -105,7 +105,7 @@ buttons = [
                             url=f"t.me/NezukoKamadoXBot?startgroup=true")
                     ],
                    [
-                       InlineKeyboardButton(text="[⍟ Help ⍟]", callback_data="help_back"),
+                       InlineKeyboardButton(text="[⍟ Help ⍟]", callback_data="mrjoker_back"),
                        InlineKeyboardButton(text="[⍟ Logs]", url="https://t.me/PegasusLogs"),
                        InlineKeyboardButton(text="[⍟ R Logs]", url="https://t.me/ArceusRenamerLogs"),
                      ],
@@ -832,7 +832,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "𝙄 𝘼ᴍ 𝑶ɴʟɪɴᴇ 𝑵ᴏᴡ ")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am Alive Now, My Tanjiro Will come to Help Me[.](https://telegra.ph/file/0312ed329b569aec80a90.jpg) ")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -879,11 +879,7 @@ def main():
 
     else:
         LOGGER.info("""      
-   
-░█▀▄▀█ ░█▀▀█ 　 ───░█ ░█▀▀▀█ ░█─▄▀ ░█▀▀▀ ░█▀▀█ 　 ░█▀▀█ ░█▀▀▀█ ▀▀█▀▀ 　 ░█▀▀▀█ ▀▀█▀▀ ─█▀▀█ ░█▀▀█ ▀▀█▀▀ 
-░█░█░█ ░█▄▄▀ 　 ─▄─░█ ░█──░█ ░█▀▄─ ░█▀▀▀ ░█▄▄▀ 　 ░█▀▀▄ ░█──░█ ─░█── 　 ─▀▀▀▄▄ ─░█── ░█▄▄█ ░█▄▄▀ ─░█── 
-░█──░█ ░█─░█ 　 ░█▄▄█ ░█▄▄▄█ ░█─░█ ░█▄▄▄ ░█─░█ 　 ░█▄▄█ ░█▄▄▄█ ─░█── 　 ░█▄▄▄█ ─░█── ░█─░█ ░█─░█ ─░█──             
-        
+Nezuko Is Started!!
 """)
         updater.start_polling(timeout=15, read_latency=4, clean=True)
 
@@ -896,7 +892,7 @@ def main():
 
 
 if __name__ == "__main__":
-    LOGGER.info("Successfully loaded MR.JOKER 🤡 modules: " + str(ALL_MODULES))
+    LOGGER.info("Successfully loaded Nezuko modules: " + str(ALL_MODULES))
     telethn.start(bot_token=TOKEN)
     pbot.start()
     main()
