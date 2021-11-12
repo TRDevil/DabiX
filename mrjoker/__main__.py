@@ -74,9 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-MRJOKER_IMG = "https://www.linkpicture.com/q/Orange-and-White-Funny-Dating-Animated-Video-Presentation.gif"
-
-MRJOKER_AUD = "https://audio.jukehost.co.uk/kKJkdHgoMPeqdel4sDrEHr7m4U6o4Xya"
+NEZUKO_IMG = "https://telegra.ph/file/f312365663c7ae0207b88.jpg"
 
 
 PM_START_TEXT = """
@@ -242,7 +240,7 @@ def start(update: Update, context: CallbackContext):
             )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                ARCEUS_IMG,
+                NEZUKO_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
