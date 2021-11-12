@@ -52,7 +52,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am an Anime themed group management bot. I will use my angel Zafkiel and protect your group. You can find my list of available commands with /help.
+I am an Anime themed group management bot. I will use my angel Tanjiro and protect your group. You can find my list of available commands with /help.
 """
 
 HELP_STRINGS = """
