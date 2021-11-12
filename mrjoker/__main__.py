@@ -75,7 +75,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 NEZUKO_IMG = "https://telegra.ph/file/f312365663c7ae0207b88.jpg"
-
+NEZUKO = "https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg"
 
 PM_START_TEXT = """
 ────『 {} 』────
@@ -122,12 +122,18 @@ buttons = [
 
 
 HELP_STRINGS = """
-**SETTINGS**
-**𝐂𝐥𝐢𝐜𝐤 𝐨𝐧 𝐭𝐡𝐞 𝐛𝐮𝐭𝐭𝐨𝐧𝐬 𝐛𝐞𝐥𝐨𝐰 𝐭𝐨 𝐠𝐞𝐭 𝐝𝐨𝐜𝐮𝐦𝐞𝐧𝐭𝐚𝐭𝐢𝐨𝐧 𝐚𝐛𝐨𝐮𝐭 𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐦𝐨𝐝𝐮𝐥𝐞𝐬**[🤖](https://telegra.ph/file/6525d89de5b72003d80fa.png)"""
+{} is here! 
+I Use My Powers To Help Admins To Manage Their Groups! 
+*Main* commands available :
+ • /help: PM's you this message.
+ • /help <module name>: PM's you info about that module.
+ • /settings:
+   • in PM: will send you your settings for all supported modules.
+   • in a group: will redirect you to pm, with all that chat's settings.
+For all command use / or ! [.](https://telegra.ph/file/568a63d5efa5e1a8216cb.jpg)"""
 
 
-
-DONATE_STRING = """ @kavinduaj"""
+DONATE_STRING = """ @TanjiroXNezukoUpdates"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -254,12 +260,12 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            MRJOKER_IMG, caption= "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            NEZOKU, caption= "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="𝗦𝗨𝗣𝗣𝗢𝗥𝗧", url="t.me/lkhitech")]]
+                [[InlineKeyboardButton(text="Support", url="https://t.me/NezukoXTanjiroChat")]]
             ),
         )
         
