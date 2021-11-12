@@ -1,11 +1,8 @@
 import importlib
-import random
 import time
 import re
 from sys import argv
 from typing import Optional
-
-import mrjoker.modules.sql.users_sql as sql
 
 from mrjoker import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
@@ -54,50 +51,12 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-────『 {} 』────
-*Hola! {},*
-*I am called {}, God of Pokemons.*
-┏━━━━━━━━━━━━━━━━
-┣ ₪ *Uptime:* `{}`
-┣ ₪ `{}` *users, across* `{}` *chats.*
-┗━━━━━━━━━━━━━━━━━
-Need Help ? Use /help [!](https://telegra.ph/file/f312365663c7ae0207b88.jpg)
+Hi {}, my name is {}! 
+I am an Anime themed group management bot. I will use my angel Zafkiel and protect your group. You can find my list of available commands with /help.
 """
 
-STICKERS = (
-      "CAACAgUAAx0CYElx6AACKehhjI0_ECk-6lCKUtRkV2EVExR3KgACIQMAArQraFTcbfvaPK3S5SIE",
-      "CAACAgUAAx0CYElx6AACKe1hjI1gSXZfNWH1LuMnjk9kFp7sugACoAMAAhxjYFQCAuuu862HyyIE",
-      "CAACAgUAAx0CYElx6AACKnJhjJC_Xo7IIru3CGnrYpojuzHwegAC-AMAAnBfYFSX4fcMbyuL1CIE",
-      "CAACAgUAAx0CYElx6AACKnphjJDhmGivn-4sS08H78e0yeGizgACggMAAuxdYFQSW-QZKM7nnCIE",
-      "CAACAgUAAx0CYElx6AACKoNhjJEDqlSzRWr9lJmrEHPLNndrFwACowMAAvClaFT_GulaEA6H8yIE",
-      "CAACAgUAAx0CYElx6AACKpthjJGERuezwHAR91nsYAABSDd5vKIAAqUCAAKdOWhUtWPqYts4jw8iBA",
-  
-)
-
-buttons = [
-    [
-                        InlineKeyboardButton(
-                            text=f"⌖ Add Arceus Robot To Your Group ⌖",
-                            url=f"t.me/ArceusRobot?startgroup=true")
-                    ],
-                   [
-                       InlineKeyboardButton(text="[⍟ Help ⍟]", callback_data="help_back"),
-                       InlineKeyboardButton(text="[⍟ Logs]", url="https://t.me/PegasusLogs"),
-                       InlineKeyboardButton(text="[⍟ R Logs]", url="https://t.me/ArceusRenamerLogs"),
-                     ],
-                    [                  
-                       InlineKeyboardButton(
-                             text="⌥ Support",
-                             url="https://t.me/PegasusSupportOfficial"),
-                       InlineKeyboardButton(
-                             text="⌥ Updates",
-                             url="https://t.me/PegasusUpdates")
-                      
-                     ], 
-    ] 
-                    
 HELP_STRINGS = """
-{} is here! 
+KURUMI is here! 
 I Use My Powers To Help Admins To Manage Their Groups! 
 *Main* commands available :
  • /help: PM's you this message.
@@ -105,18 +64,16 @@ I Use My Powers To Help Admins To Manage Their Groups!
  • /settings:
    • in PM: will send you your settings for all supported modules.
    • in a group: will redirect you to pm, with all that chat's settings.
-For all command use / or ! [.](https://telegra.ph/file/dd80517f29fc7e924f640.jpg) 
+For all command use / [or](https://telegra.ph/file/b1b545eb4877b012eac82.png) ! 
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
-ARCEUS_IMG = "https://telegra.ph/file/64641f7c4bd39bb124fa8.jpg"
-ARCEUS_ICE = "https://telegra.ph/file/a3babdad07dc66459dfcb.jpg"
-ARCEUS_FIRE = "https://telegra.ph/file/5317da61fc1362d9c7921.jpg"
-ARCEUS_GHOST = "https://telegra.ph/file/0a1095bd7d2a1bec7ab56.jpg"
+TOKISAKI_IMG = "https://telegra.ph/file/99bbcc3b8564804dc2ab0.jpg"
+KURUMI_IMG = "https://telegra.ph/file/e1d87ec2bdac4e3cfe0a4.mp4"
+
 DONATE_STRING = """Heya, glad to hear you want to donate!
-Arceus is basically a Pokemon Themed Bot, so there is no needs of funding for me right now.
-There are two ways of supporting him; [PayPal](paypal.me/prabincf), or [ArceusRobot](t.me/arceusprorobot)."""
+Click here to donate in [Paypal](https://www.paypal.me/zameeljaz)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -202,7 +159,7 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id, HELPABLE[mod].__help__,
                     InlineKeyboardMarkup([[
                         InlineKeyboardButton(
-                            text="〆 Back", callback_data="help_back")
+                            text="Back", callback_data="help_back")
                     ]]))
             elif args[0].lower() == "markdownhelp":
                 IMPORTED["extras"].markdown_help_sender(update)
@@ -223,45 +180,46 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_sticker(
-                random.choice(STICKERS),
-                timeout=60,
-            )
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                ARCEUS_IMG,
+                TOKISAKI_IMG,
                 PM_START_TEXT.format(
-                    escape_markdown(context.bot.first_name),
                     escape_markdown(first_name),
-                    escape_markdown(context.bot.first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),                        
-                reply_markup=InlineKeyboardMarkup(buttons),
+                    escape_markdown(context.bot.first_name)),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-            )
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton(
+                            text="☑️ Add Kurumi Chan to your group",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username))
+                    ],
+                     [
+                         InlineKeyboardButton(
+                             text="🚨 Support 🚨",
+                             url=f"https://t.me/{SUPPORT_CHAT}"),
+                         InlineKeyboardButton(
+                             text="My luv ❤",
+                             url="https://t.me/A_lonelyPerson")
+                    ], 
+                     [
+                         InlineKeyboardButton(
+                             text="🔔 Updates of KURUMI 🔔",
+                             url="https://t.me/hiroiscool")
+                    ], 
+                     [
+                         InlineKeyboardButton(
+                             text="📳 Anime Chat Group 📳",
+                             url="https://t.me/WeebXWorld")
+                    ]]))
+                     
+                    
+                  
+                    
     else:
-            update.effective_message.reply_photo(
-                ARCEUS_IMG, caption= "Hello, Arceus Is Here, My All Power Has Been Restarted: <code>{}</code>".format(
-                uptime
-            ),
-            
-            parse_mode=ParseMode.HTML,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                  [
-                  InlineKeyboardButton(text="🚦 Sᴜᴘᴘᴏʀᴛ", url="https://t.me/PegasusSupportOfficial")
-                  ],
-                  [
-                  InlineKeyboardButton(text="🚦 Uᴘᴅᴀᴛᴇs", url="https://t.me/PegasusUpdates")
-                  ],
-                  [
-                  InlineKeyboardButton(text="❓ Hᴇʟᴘ", url="https://t.me/ArceusProRobot?start=help")
-                  ]
-                ]
-            ),
-        )
+        update.effective_message.reply_video(
+                KURUMI_IMG, caption=f"Zaphkiel!!!!\nI'm here with my Zaphkiel")
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
@@ -314,7 +272,7 @@ def help_button(update, context):
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
-                        text="〆 Back", callback_data="help_back")
+                        text="Back", callback_data="help_back")
                 ]]))
 
         elif prev_match:
@@ -366,23 +324,13 @@ def get_help(update: Update, context: CallbackContext):
                             context.bot.username, module))
                 ]]))
             return
-          
-        update.effective_message.reply_photo(
-            ARCEUS_ICE, caption= "Contact me in PM to get the list of possible commands.",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                  [
-                  InlineKeyboardButton(text="❓ Hᴇʟᴘ", url="https://t.me/ArceusProRobot?start=help")
-                  ],
-                  [
-                  InlineKeyboardButton(text="📚 Sᴜᴘᴘᴏʀᴛ", url="https://t.me/PegasusSupportOfficial")
-                  ],
-                  [
-                  InlineKeyboardButton(text="💬 Uᴘᴅᴀᴛᴇs", url="https://t.me/pegasusupdates")
-                  ]
-                ]
-            ),
-        )
+        update.effective_message.reply_text(
+            "Contact me in PM to get the list of possible commands.",
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton(
+                    text="Help",
+                    url="t.me/{}?start=help".format(context.bot.username))
+            ]]))
         return
 
     elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
@@ -392,7 +340,7 @@ def get_help(update: Update, context: CallbackContext):
         send_help(
             chat.id, text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="〆 Back",
+                [[InlineKeyboardButton(text="Back",
                                        callback_data="help_back")]]))
 
     else:
@@ -455,7 +403,7 @@ def settings_button(update: Update, context: CallbackContext):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
-                        text="〆 Back",
+                        text="Back",
                         callback_data="stngs_back({})".format(chat_id))
                 ]]))
 
@@ -542,7 +490,7 @@ def donate(update: Update, context: CallbackContext):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True)
 
-        if OWNER_ID != 2098681130 and DONATION_LINK:
+        if OWNER_ID != 254318997 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
@@ -586,7 +534,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "⌭ Arceus Is Now Alive! U Can use me Now[.](https://telegra.ph/file/0a1095bd7d2a1bec7ab56.jpg)〢", parse_mode=ParseMode.MARKDOWN) 
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[My Zaphkiel won't let me die!](https://telegra.ph/file/b069f7fbe7eecdb56c36c.mp4)", parse_mode=ParseMode.MARKDOWN) 
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")
