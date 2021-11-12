@@ -61,7 +61,7 @@ PM_START_TEXT = """
 ┣ ₪ *Uptime:* `{}`
 ┣ ₪ `{}` *users, across* `{}` *chats.*
 ┗━━━━━━━━━━━━━━━━━
-Need Help ? Use /help [!](https://telegra.ph/file/83b57abefc2dfd3c5ef27.jpg)
+Need Help ? Use /help [!](https://telegra.ph/file/f312365663c7ae0207b88.jpg)
 """
 
 STICKERS = (
