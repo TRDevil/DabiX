@@ -89,20 +89,20 @@ Need Help ? Use /help [!](https://telegra.ph/file/83b57abefc2dfd3c5ef27.jpg)
 """
 
 STICKERS = (
-      "CAACAgUAAx0CYElx6AACKehhjI0_ECk-6lCKUtRkV2EVExR3KgACIQMAArQraFTcbfvaPK3S5SIE",
-      "CAACAgUAAx0CYElx6AACKe1hjI1gSXZfNWH1LuMnjk9kFp7sugACoAMAAhxjYFQCAuuu862HyyIE",
-      "CAACAgUAAx0CYElx6AACKnJhjJC_Xo7IIru3CGnrYpojuzHwegAC-AMAAnBfYFSX4fcMbyuL1CIE",
-      "CAACAgUAAx0CYElx6AACKnphjJDhmGivn-4sS08H78e0yeGizgACggMAAuxdYFQSW-QZKM7nnCIE",
-      "CAACAgUAAx0CYElx6AACKoNhjJEDqlSzRWr9lJmrEHPLNndrFwACowMAAvClaFT_GulaEA6H8yIE",
-      "CAACAgUAAx0CYElx6AACKpthjJGERuezwHAR91nsYAABSDd5vKIAAqUCAAKdOWhUtWPqYts4jw8iBA",
+      "CAACAgUAAxkBAAPFYY3-Zk8ghmibpLkZl_fI5j6ssZ0AAv0CAAKWg3BU2TOmEMlLEAQiBA",
+      "CAACAgUAAxkBAAPIYY3_iAtpI_3UiD7AjLwICGndTWgAAp0DAAICYnFUwaTKvZmV2VEiBA",
+      "CAACAgUAAxkBAAPLYY3_njuTDdTpnstdjRDzIx6gfbsAAnYDAAKl4nFUut-Defb8izsiBA",
+      "CAACAgUAAxkBAAPOYY3_sJsg4x-tJ14rZjiICV7gfy8AAq0DAAJmcHFUeKWhqHNnrZIiBA",
+      "CAACAgUAAxkBAAPcYY4AAaCadcijrlxI-NvNiUZbfm-GAAIkBAACV5RwVG364TKnqSHdIgQ",
+      "CAACAgUAAxkBAAPfYY4AAbT3A57ec7jnW5G0KqlsR8vbAAICBAACWi9xVJDV3_LLfOGuIgQ",
   
 )
 
 buttons = [
     [
                         InlineKeyboardButton(
-                            text=f"⌖ Add Arceus Robot To Your Group ⌖",
-                            url=f"t.me/ArceusRobot?startgroup=true")
+                            text=f"⌖ Add Nezoku Robot To Your Group ⌖",
+                            url=f"t.me/NezukoKamadoXBot?startgroup=true")
                     ],
                    [
                        InlineKeyboardButton(text="[⍟ Help ⍟]", callback_data="help_back"),
