@@ -109,6 +109,7 @@ if ENV:
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
     MONGO_DB_URL = os.environ.get("MONGO_DB_URI", None)
+    LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
