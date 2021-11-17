@@ -52,9 +52,9 @@ __mod_name__ = "Inline Mode"
 __help__ = """
 ⚊❮❮❮❮ ｢INLINE BOT SERVICE」❯❯❯❯⚊
 
-**I'm more efficient when added as group admin. By the way these commands can be used by anyone in a group via inline**[SDSD.](https://telegra.ph/file/7b406588473aa764e58db.jpg)
+**I'm more efficient when added as group admin. By the way these commands can be used by anyone in a group via inline**
 ──「 Syntax 」──
-@Mrjokerlk_bot [command] [query]
+@NezukoKamadoXBot [command] [query]
 
 ╔ **Commands Available**
 ╠ `alive` - Check Bot's Stats.
@@ -99,7 +99,7 @@ __HELP__ = """
 `I'm more efficient when added as group admin. By the way these commands can be used by anyone in a group via inline`
    >> **Syntax** <<
    
-@Mrjokerlk_bot [command] [query]
+@NezukoKamadoXBot [command] [query]
 
    >> **Commands Available** <<
 🔹 **alive** - __Check Bot's Stats.__
