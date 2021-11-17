@@ -13,6 +13,7 @@ from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
+from mrjoker.utils.logger import log
 
 StartTime = time.time()
 CMD_HELP = {}
