@@ -3,6 +3,7 @@ emoji
 pydub
 futures==2.2.0
 python-barcode==0.13.1
+cowpy 
 fuzzysearch 
 numpy
 multicolorcaptcha
@@ -44,9 +45,11 @@ telethon==1.16.4
 telegraph
 heroku3
 spamwatch
+zalgo_text
 alphabet_detector
 pybase64
 pySmartDL
+selenium
 validators
 nekos.py
 aiofiles
