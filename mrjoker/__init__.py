@@ -233,6 +233,7 @@ telethn = TelegramClient("Mrjoker", API_ID, API_HASH)
 pbot = Client("mrjoker", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 #mbot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
 dispatcher = updater.dispatcher
+dp = Dispatcher(bot, storage=storage)
 
 print("[MRJOKER]: Connecting To Yūki • Data Center • Mumbai • MongoDB Database")
 MONGO_DB = "mrjoker"
