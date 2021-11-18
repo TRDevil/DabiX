@@ -126,6 +126,22 @@ def warn(user: User,
             f"<code> </code><b>•  Count:</b> {num_warns}/{limit}")
         if reason:
             reply += f"\n<code> </code><b>•  Reason:</b> {html.escape(reason)}"
+            
+        bot.sendMessage(
+            chat.id,
+            reply,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="✅ Unwarn", callback_data=f"rm_warn={user_id}"
+                        ),
+                        InlineKeyboardButton(text="❌ Delete", callback_data="rm_warn_del"),
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML,
+        )
 
         log_reason = (f"<b>{html.escape(chat.title)}:</b>\n"
                       f"#WARN\n"
