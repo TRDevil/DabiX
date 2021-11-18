@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 
 from mrjoker import log
-from mrjoker.config import get_int_key, get_str_key
+from mrjoker.conf import get_int_key, get_str_key
 
 MONGO_URI = get_str_key("MONGO_URI")
 MONGO_PORT = get_int_key("MONGO_PORT")
