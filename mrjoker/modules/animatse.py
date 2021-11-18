@@ -24,6 +24,7 @@ from zalgo_text import zalgo
 
 from mrjoker import *
 from mrjoker.services.telethonuserbot import ubot
+from mrjoker.services.events import register
 
 async def deepfry(img: Image) -> Image:
     colours = (
