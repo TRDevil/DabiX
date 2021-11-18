@@ -11,6 +11,7 @@ from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
+from mrjoker.config import Development as Config
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
@@ -125,9 +126,6 @@ else:
         BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
-
-else:
-    from mrjoker.config import Development as Config
 
     TOKEN = Config.TOKEN
 
