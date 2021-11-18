@@ -6,6 +6,7 @@ import spamwatch
 
 import telegram.ext as tg
 from aiogram import Bot, Dispatcher, types
+from aiogram.bot.api import TELEGRAM_PRODUCTION, TelegramAPIServer
 from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
@@ -70,6 +71,13 @@ if ENV:
         TIGERS = set(int(x) for x in os.environ.get("TIGERS", "").split())
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
+
+
+# Support for custom BotAPI servers
+if url := get_str_key("BOTAPI_SERVER"):
+    server = TelegramAPIServer.from_base(url)
+else:
+    server = TELEGRAM_PRODUCTION
 
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
@@ -220,7 +228,13 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
           
-        
+        # AIOGram
+bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML, server=server)
+storage = RedisStorage2(
+    host=get_str_key("REDIS_URI"),
+    port=get_int_key("REDIS_PORT"),
+    password=get_str_key("REDIS_PASS"),
+)
          
 #install aiohttp session
 print("[MRJOKER]: Initializing AIOHTTP Session")
