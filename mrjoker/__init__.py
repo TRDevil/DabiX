@@ -5,6 +5,7 @@ import time
 import spamwatch
 
 import telegram.ext as tg
+from aiogram import Bot, Dispatcher, types
 from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
