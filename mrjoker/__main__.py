@@ -826,7 +826,6 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 def main():
 
-    [Forwarded from 『 𝙆𝙄𝙎𝙃𝙊𝙍𝙀™』 °•❦핫보이❦•°]
 if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
