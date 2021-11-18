@@ -5,18 +5,14 @@ import time
 import spamwatch
 
 import telegram.ext as tg
-from aiogram import Bot, Dispatcher, types
-from aiogram.bot.api import TELEGRAM_PRODUCTION, TelegramAPIServer
 from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
-from mrjoker.conf import Development as Config
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
-from mrjoker.utils.logger import log
 
 StartTime = time.time()
 CMD_HELP = {}
@@ -73,13 +69,6 @@ if ENV:
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
-
-# Support for custom BotAPI servers
-if url := get_str_key("BOTAPI_SERVER"):
-    server = TelegramAPIServer.from_base(url)
-else:
-    server = TELEGRAM_PRODUCTION
-
     INFOPIC = bool(os.environ.get("INFOPIC", False))
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     EVENT_LOGS = os.environ.get("EVENT_LOGS", None)
@@ -120,12 +109,14 @@ else:
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
     MONGO_DB_URL = os.environ.get("MONGO_DB_URI", None)
-    LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
 
     try:
         BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
+
+else:
+    from mrjoker.config import Development as Config
 
     TOKEN = Config.TOKEN
 
@@ -226,13 +217,7 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
           
-        # AIOGram
-bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML, server=server)
-storage = RedisStorage2(
-    host=get_str_key("REDIS_URI"),
-    port=get_int_key("REDIS_PORT"),
-    password=get_str_key("REDIS_PASS"),
-)
+        
          
 #install aiohttp session
 print("[MRJOKER]: Initializing AIOHTTP Session")
@@ -246,8 +231,6 @@ telethn = TelegramClient("Mrjoker", API_ID, API_HASH)
 pbot = Client("mrjoker", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 #mbot = TelegramClient(StringSession(STRING_SESSION), API_KEY, API_HASH)
 dispatcher = updater.dispatcher
-bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML, server=server)
-dp = Dispatcher(bot, storage=storage)
 
 print("[MRJOKER]: Connecting To Yūki • Data Center • Mumbai • MongoDB Database")
 MONGO_DB = "mrjoker"
