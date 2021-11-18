@@ -11,7 +11,7 @@ from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
-from mrjoker.config import Development as Config
+from mrjoker.conf import Development as Config
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
