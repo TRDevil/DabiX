@@ -17,6 +17,7 @@ googletrans
 gpytranslate
 gtts
 faker
+aiogram
 yt_dlp
 beautifulsoup4
 requests==2.20.0
