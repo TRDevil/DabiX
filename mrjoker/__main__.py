@@ -826,9 +826,14 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 def main():
 
-    if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
+    [Forwarded from 『 𝙆𝙄𝙎𝙃𝙊𝙍𝙀™』 °•❦핫보이❦•°]
+if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am Alive Now, My Tanjiro Will come to Help Me [.](https://telegra.ph/file/0312ed329b569aec80a90.jpg) ")
+            dispatcher.bot.sendMessage(
+                f"@{SUPPORT_CHAT}",
+                "I am Alive Now, My Tanjiro Will come to Help Me [.](https://telegra.ph/file/0312ed329b569aec80a90.jpg)",
+                parse_mode=ParseMode.MARKDOWN,
+            )
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
