@@ -1,5 +1,4 @@
-*Stdout*
-`import importlib
+import importlib
 import time
 import re
 import random
