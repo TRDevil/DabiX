@@ -54,28 +54,32 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hi Darling! {},
-My Name Is {}
-I Am An anime Themed Group Management bot With Lots of Powerful Features.
-Need Any Help? Hit /help !*
+✧ Hɪ, {} ✃
+✠ Mʏ Nᴀᴍᴇ {}, I Lɪᴋᴇ ᴛᴏ ʟɪᴠᴇ ᴀʟᴏɴᴇ. Iғ ᴜ Lɪᴋᴇ ᴍᴇ ᴜ ᴄᴀɴ ᴀᴅᴅ, ɴᴏ ᴘʀᴏʙ ɪɴ ᴛʜᴀᴛ! I ᴀᴍ ɴᴏᴛ ᴄᴏᴍᴘᴇʟʟɪɴɢ ᴜ ᴛᴏ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs.
 
-• *Uptime:* `{}`
-• `{}` *Users, Across* `{}` *Chats* 
+❦ ɱყ รƭαƭร
+✇ *Uptime:* `{}`
+✇ `{}` *Users, Across* `{}` *Chats* 
 """
 
 buttons = [
     [
                         InlineKeyboardButton(
-                            text="Add Me 💞",
-                            url="https://t.me/MikuWaifuBot?startgroup=true"),
+                            text="✘ Add Me If u like ✘",
+                            url="https://t.me/NezukoKamadoXBot?startgroup=true"),
+                    ],
+   [
+                        InlineKeyboardButton(
+                            text="🔗 Help",
+                            url="https://t.me/NezukoKamadoXBot?start=help"),
                     ],
                    [                  
                        InlineKeyboardButton(
-                             text="Support 💕",
-                             url=f"https://t.me/MikusSupport"),
+                             text="⍨ Support",
+                             url=f"https://t.me/NezukoXTanjiroChat"),
                        InlineKeyboardButton(
-                             text="Updates 💓",
-                             url="https://t.me/mikusupdates")
+                             text="⍨ Updates",
+                             url="https://t.me/TanjiroXNezukoUpdates")
                      ], 
     ]
 
@@ -89,31 +93,30 @@ I Use My Powers To Help Admins To Manage Their Groups!
  • /settings:
    • in PM: will send you your settings for all supported modules.
    • in a group: will redirect you to pm, with all that chat's settings.
-For all command use /* [or](https://telegra.ph/file/85a404cf9edbd797c829f.jpg) *!*
+For all command use /* [or](https://telegra.ph/file/f443e401b5b00fd81d425.jpg) *!*
 """.format(
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
 NAKANO_IMG = (
-      "https://telegra.ph/file/ebc145368598dd146f02e.jpg",
-      "https://telegra.ph/file/a90d7a4f49f8d170ec0d7.jpg",
-      "https://telegra.ph/file/df2fe49e1af558068b736.jpg",
-      "https://telegra.ph/file/15a18cd8a1679b6761367.jpg",
-      "https://telegra.ph/file/396d27f7cba3f83efceab.jpg",
+      "https://telegra.ph/file/f443e401b5b00fd81d425.jpg",
+      "https://telegra.ph/file/3c5875effd53f39f00833.jpg",
+      "https://telegra.ph/file/aa4dcf094af1760aa2ad8.jpg",
+      "https://telegra.ph/file/2a590ee44ff085a23faf1.jpg",
+      "https://telegra.ph/file/c82bafa199fcba76ce974.jpg",
 )
 
 MIKU_IMG = (
-      "https://telegra.ph/file/afc13129640cae30aaa5f.jpg",
-      "https://telegra.ph/file/1ed062e697e0a07c58324.jpg",
-      "https://telegra.ph/file/83b51995ca21660e6169d.jpg",
-      "https://telegra.ph/file/720b83ae4bf0dbdf19d47.jpg",
-      "https://telegra.ph/file/a3b6bf9e471f99363ff79.jpg",
+      "https://telegra.ph/file/f443e401b5b00fd81d425.jpg",
+      "https://telegra.ph/file/3c5875effd53f39f00833.jpg",
+      "https://telegra.ph/file/aa4dcf094af1760aa2ad8.jpg",
+      "https://telegra.ph/file/2a590ee44ff085a23faf1.jpg",
+      "https://telegra.ph/file/c82bafa199fcba76ce974.jpg",
 )
 
-MIKU_N_IMG = "https://telegra.ph/file/837c61d9c51236fea4100.jpg"
+MIKU_N_IMG = "https://telegra.ph/file/47198838c08aabffbbab7.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
-Click here to donate in [Paypal](https://www.paypal.me/zameeljaz)"""
+DONATE_STRING = """No need i am  Rich Also No Donation Needed! Just Join Our Support @NezukoXTanjiroChat"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -240,7 +243,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-                random.choice(MIKU_IMG), caption= "*Hey {}, I'm alive From:* `{}`".format(
+                random.choice(MIKU_IMG), caption= "*Hey {}, I'm alive Now, Till my love comes 💝 Alive stats:* `{}`".format(
                 first_name,
                 uptime
             ),
@@ -250,11 +253,11 @@ def start(update: Update, context: CallbackContext):
                 [
                   [                  
                        InlineKeyboardButton(
-                             text="Support🚑",
-                             url=f"https://t.me/MikusSupport"),
+                             text="⍨ Support",
+                             url=f"https://t.me/NezukoXTanjiroChat"),
                        InlineKeyboardButton(
-                             text="Updates🛰️",
-                             url="https://t.me/mikusupdates")
+                             text="⍨ Updates",
+                             url="https://t.me/TanjiroXNezukoUpdates")
                      ] 
                 ]
             ),
