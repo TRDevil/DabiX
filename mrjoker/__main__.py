@@ -243,7 +243,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-                random.choice(MIKU_IMG), caption= "*Hey {}, I'm alive Now, Till my love comes 💝 Alive stats:* `{}`".format(
+                random.choice(MIKU_IMG), caption= "*Hey {}, I'm Alive Now, Till My Love Comes 💝 Alive stats:* `{}`".format(
                 first_name,
                 uptime
             ),
@@ -372,7 +372,7 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/MikuWaifuBot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/NezukoKamadoXBot?start=help")
                   ]
                 ]
             ),
@@ -580,7 +580,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "*I am in online* [.](https://telegra.ph/file/e034dda3ce1d5f38e5eae.jpg)", parse_mode=ParseMode.MARKDOWN) 
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am Alive Now, My Tanjiro Will come to Help Me[.](https://telegra.ph/file/0312ed329b569aec80a90.jpg)", parse_mode=ParseMode.MARKDOWN) 
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")
