@@ -257,10 +257,10 @@ def start(update: Update, context: CallbackContext):
                   [                  
                        InlineKeyboardButton(
                              text="⍨ Support",
-                             url=f"https://t.me/NezukoXTanjiroChat"),
+                             url=f"https://t.me/CrowdStrikeChat"),
                        InlineKeyboardButton(
                              text="⍨ Updates",
-                             url="https://t.me/TanjiroXNezukoUpdates")
+                             url="https://t.me/CrowdXStrike")
                      ] 
                 ]
             ),
