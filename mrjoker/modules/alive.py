@@ -351,8 +351,8 @@ def alive(update: Update, context: CallbackContext):
     for x in range(EDIT_TIMES):
         msg.edit_text(alive_you[x%7])
         time.sleep(EDIT_SLEEP)
-    update.effective_message.reply_video(
-            INFO_IMG, caption=f"Yep I am Working Now...😄")
+    update.effective_message.reply_photo(
+            INFO_IMG, caption=f"Yep I am Working Now...😄 | Join @HeXaBattleZone")
 
 __help__ = """
 - /love
