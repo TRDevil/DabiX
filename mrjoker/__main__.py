@@ -72,14 +72,17 @@ buttons = [
                         InlineKeyboardButton(
                             text="🔗 Help",
                             url="https://t.me/NezukoKamadoXBot?start=help"),
+                       InlineKeyboardButton(
+                            text="🔘 Logs",
+                            url="https://t.me/CrowdXStrikeLogs"),
                     ],
                    [                  
                        InlineKeyboardButton(
                              text="⍨ Support",
-                             url=f"https://t.me/NezukoXTanjiroChat"),
+                             url=f"https://t.me/CrowdStrikeChat"),
                        InlineKeyboardButton(
                              text="⍨ Updates",
-                             url="https://t.me/TanjiroXNezukoUpdates")
+                             url="https://t.me/CrowdXStrike")
                      ], 
     ]
 
@@ -116,7 +119,7 @@ MIKU_IMG = (
 
 MIKU_N_IMG = "https://telegra.ph/file/47198838c08aabffbbab7.jpg"
 
-DONATE_STRING = """No need i am  Rich Also No Donation Needed! Just Join Our Support @NezukoXTanjiroChat"""
+DONATE_STRING = """No need i am  Rich Also No Donation Needed! Just Join Our Support @CrowdStrikeChat"""
 
 IMPORTED = {}
 MIGRATEABLE = []
