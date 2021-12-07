@@ -1,5 +1,6 @@
 future
 emoji
+pbot
 pydub
 futures==2.2.0
 python-barcode==0.13.1
