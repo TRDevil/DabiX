@@ -14,7 +14,7 @@ class Config(object):
     # REQUIRED
     # Login to https://my.telegram.org and fill in these slots with the details given by it
 
-    API_ID =   # integer value, dont use ""
+    API_ID = "7679848"
     API_HASH = ""
     BOT_ID = ""
     TOKEN = ""  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
