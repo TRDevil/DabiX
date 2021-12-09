@@ -20,7 +20,7 @@ gpytranslate
 gtts
 faker
 aiogram
-yt_dlp
+
 beautifulsoup4
 requests==2.20.0
 python-telegram-bot==12.8
@@ -63,7 +63,7 @@ ujson
 pretty_errors
 TgCrypto
 Pyrogram
-youtube-dl
+
 youtube-search-python
 asyncio
 dateparser==1.0.0
