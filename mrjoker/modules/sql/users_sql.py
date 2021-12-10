@@ -7,7 +7,7 @@ from sqlalchemy.sql.sqltypes import BigInteger
 
 class Users(BASE):
     __tablename__ = "users"
-user_id from Integer to BigInteger
+user_id from BigInteger
 uername = Column(UnicodeText)
 
     def __init__(self, user_id, username=None):
