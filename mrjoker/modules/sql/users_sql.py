@@ -2,21 +2,13 @@ import threading
 
 from mrjoker import dispatcher
 from mrjoker.modules.sql import BASE, SESSION
-from sqlalchemy import (
-    Column,
-    ForeignKey,
-    Integer,
-    String,
-    UnicodeText,
-    UniqueConstraint,
-    func,
-)
+from sqlalchemy.sql.sqltypes import BigInteger
 
 
 class Users(BASE):
     __tablename__ = "users"
-    user_id = Column(Integer, primary_key=True)
-    username = Column(UnicodeText)
+user_id from Integer to BigInteger
+uername = Column(UnicodeText)
 
     def __init__(self, user_id, username=None):
         self.user_id = user_id
