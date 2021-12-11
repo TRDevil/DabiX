@@ -2,13 +2,23 @@ import threading
 
 from mrjoker import dispatcher
 from mrjoker.modules.sql import BASE, SESSION
+
 from sqlalchemy.sql.sqltypes import BigInteger
+from sqlalchemy import (
+    Column,
+    ForeignKey,
+    String,
+    UnicodeText,
+    UniqueConstraint,
+    func,
+    Integer,
+)
 
 
 class Users(BASE):
     __tablename__ = "users"
-user_id from (BigInteger)
-uername = Column(UnicodeText)
+    user_id = Column(BigInteger, primary_key=True)
+    username = Column(UnicodeText)
 
     def __init__(self, user_id, username=None):
         self.user_id = user_id
@@ -41,7 +51,7 @@ class ChatMembers(BASE):
         nullable=False,
     )
     user = Column(
-        Integer,
+        BigInteger,
         ForeignKey("users.user_id", onupdate="CASCADE", ondelete="CASCADE"),
         nullable=False,
     )
@@ -186,7 +196,9 @@ def migrate_chat(old_chat_id, new_chat_id):
         chat = SESSION.query(Chats).get(str(old_chat_id))
         if chat:
             chat.chat_id = str(new_chat_id)
-        SESSION.commit()
+            SESSION.add(chat)
+
+        SESSION.flush()
 
         chat_members = (
             SESSION.query(ChatMembers)
@@ -195,6 +207,8 @@ def migrate_chat(old_chat_id, new_chat_id):
         )
         for member in chat_members:
             member.chat = str(new_chat_id)
+            SESSION.add(member)
+
         SESSION.commit()
 
 
