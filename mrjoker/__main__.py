@@ -65,25 +65,24 @@ PM_START_TEXT = """
 buttons = [
     [
                         InlineKeyboardButton(
-                            text="✘ Add Me If u like ✘",
+                            text="⇱ Sυммσи мє ⇲",
                             url="https://t.me/NezukoKamadoXBot?startgroup=true"),
-                    ],
-   [
-                        InlineKeyboardButton(
-                            text="🔗 Help",
-                            url="https://t.me/NezukoKamadoXBot?start=help"),
-                       InlineKeyboardButton(
-                            text="🔘 Logs",
-                            url="https://t.me/CrowdXStrikeLogs"),
                     ],
                    [                  
                        InlineKeyboardButton(
-                             text="⍨ Support",
+                             text="👥 Support",
                              url=f"https://t.me/CrowdStrikeChat"),
                        InlineKeyboardButton(
-                             text="⍨ Updates",
-                             url="https://t.me/CrowdXStrike")
-                     ], 
+                             text="📢 Updates",
+                             url="https://t.me/CrowdXStrike"),
+                      InlineKeyboardButton(
+                             text="🌐 Network",
+                             url="https://t.me/YuichiroNetwork")
+                     ],
+                    [
+                        InlineKeyboardButton(text="🔐 Help", url="https://t.me/NezukoKamadoXBot?start=help"),
+                        InlineKeyboardButton(text="☑️ TR Bots Chat", url="https://t.me/TRCrazyBots"),
+                    ], 
     ]
 
                     
