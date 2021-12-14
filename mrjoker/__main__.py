@@ -10,8 +10,8 @@ import mrjoker.modules.sql.users_sql as sql
 from mrjoker import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           SUPPORT_CHAT, dispatcher, StartTime, telethn, updater)
-# needed! to dynamically load modules
-# NOTE: Module order is not guaranteed, specify that in the config file
+# needed to dynamically load modules
+# NOTE: Module order is not guaranteed, specify that in the config file!
 from mrjoker.modules import ALL_MODULES
 from mrjoker.modules.helper_funcs.chat_status import is_user_admin
 from mrjoker.modules.helper_funcs.misc import paginate_modules
@@ -54,19 +54,20 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-✧ Hɪ, {} ✃
-✠ Mʏ Nᴀᴍᴇ {}, I Lɪᴋᴇ ᴛᴏ ʟɪᴠᴇ ᴀʟᴏɴᴇ. Iғ ᴜ Lɪᴋᴇ ᴍᴇ ᴜ ᴄᴀɴ ᴀᴅᴅ, ɴᴏ ᴘʀᴏʙ ɪɴ ᴛʜᴀᴛ! I ᴀᴍ ɴᴏᴛ ᴄᴏᴍᴘᴇʟʟɪɴɢ ᴜ ᴛᴏ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs.
-
-❦ ɱყ รƭαƭร
-✇ *Uptime:* `{}`
-✇ `{}` *Users, Across* `{}` *Chats* 
+*Hᴇʟʟᴏ* [{}](tg://settings/)*!*
+◈ I'ᴍ ∂αвι, Mʏ Rᴇᴀʟ Nᴀᴍᴇ Tᴏʏᴀ Tᴏᴅᴏʀᴏᴋɪ.
+────────────────────────
+⊙ *Uᴘᴛɪᴍᴇ:* `{}`
+⊙ `{}` *Usᴇʀs, Aᴄʀᴏss* `{}` *Cʜᴀᴛs*
+────────────────────────
+➢ Cʟɪᴄᴋ Tʜᴇ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Tᴏ Cʜᴇᴄᴋ Mʏ Cᴏᴍᴍᴀɴᴅs. 
 """
 
 buttons = [
     [
                         InlineKeyboardButton(
                             text="⇱ Sυммσи мє ⇲",
-                            url="https://t.me/NezukoKamadoXBot?startgroup=true"),
+                            url="https://t.me/DabiXBot?startgroup=true"),
                     ],
                    [                  
                        InlineKeyboardButton(
@@ -80,45 +81,64 @@ buttons = [
                              url="https://t.me/YuichiroNetwork")
                      ],
                     [
-                        InlineKeyboardButton(text="🔐 Help", url="https://t.me/NezukoKamadoXBot?start=help"),
+                        InlineKeyboardButton(text="🔐 Help", url="https://t.me/DabiXBot?start=help"),
                         InlineKeyboardButton(text="☑️ TR Bots Chat", url="https://t.me/TRCrazyBots"),
+                    ], 
+    ]
+
+SECOND_START_MSG = """
+*Hᴇʟʟᴏ {}!,*
+◈ *Sᴇʟᴇᴄᴛ Aʟʟ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Fᴜʟʟ Hᴇʟᴘ Aɴᴅ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Aᴅᴅ Mᴇ* [😉](https://telegra.ph/file/1f6120f20477589316652.jpg) 
+"""
+
+buutons = [
+    [
+                        InlineKeyboardButton(
+                            text="Add Me ➕",
+                            url="https://t.me/DabiXBot?startgroup=true"),
+                    ],
+                   [
+                        InlineKeyboardButton(
+                            text="Close ❌",
+                            callback_data="cutiipii_back"),
+                        InlineKeyboardButton(text="Help 🔐", callback_data="help_back"),
                     ], 
     ]
 
                     
 HELP_STRINGS = """
-*Hey your {} is here! 
-I Use My Powers To Help Admins To Manage Their Groups! 
-*Main* commands available :
- • /help: PM's you this message.
- • /help <module name>: PM's you info about that module.
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
-For all command use /* [or](https://telegra.ph/file/f443e401b5b00fd81d425.jpg) *!*
+[► {} Help ◄]
+────────────────────────
+➣ Tᴏ ᴍᴀᴋᴇ ᴍᴇ ғᴜɴᴄᴛɪᴏɴᴀʟ, ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ɪ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ.
+➣ /start[:](https://telegra.ph/file/047f8bf46f551593eb508.jpg) Sᴛᴀʀᴛs ᴍᴇ! Yᴏᴜ'ᴠᴇ ᴘʀᴏʙᴀʙʟʏ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ ᴛʜɪs.
+➣ Fᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇ ᴏʀ ғɪɴᴅ ᴀɴʏ ʙᴜɢs ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ɪᴛ ɪɴ [Sᴜᴘᴘᴏʀᴛ](http://t.me/CrowdStrikeChat) Oʀ [Hᴇʀᴇ](http://t.me/DreamerNo1)
+────────────────────────
+©️ Dabi Bot | 2021 - 2022 | [Devil](t.me/DreamerNo1)
 """.format(
-    dispatcher.bot.first_name, ""
+    dispatcher.bot.first_name,""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
 NAKANO_IMG = (
-      "https://telegra.ph/file/f443e401b5b00fd81d425.jpg",
-      "https://telegra.ph/file/3c5875effd53f39f00833.jpg",
-      "https://telegra.ph/file/aa4dcf094af1760aa2ad8.jpg",
-      "https://telegra.ph/file/2a590ee44ff085a23faf1.jpg",
-      "https://telegra.ph/file/c82bafa199fcba76ce974.jpg",
+      "https://telegra.ph/file/2a7cf166e2e69d6121a2b.jpg",
+      "https://telegra.ph/file/9594a438fa2b9be1c1375.jpg",
+      "https://telegra.ph/file/fdfb8dd4df36700e0ba06.jpg",
+      "https://telegra.ph/file/f17124f1d5c96e6d1a825.jpg",
+      "https://telegra.ph/file/1f6120f20477589316652.jpg",
 )
 
 MIKU_IMG = (
-      "https://telegra.ph/file/f443e401b5b00fd81d425.jpg",
-      "https://telegra.ph/file/3c5875effd53f39f00833.jpg",
-      "https://telegra.ph/file/aa4dcf094af1760aa2ad8.jpg",
-      "https://telegra.ph/file/2a590ee44ff085a23faf1.jpg",
-      "https://telegra.ph/file/c82bafa199fcba76ce974.jpg",
+      "https://telegra.ph/file/241928efae7a97ed33498.jpg",
+      "https://telegra.ph/file/65a170ce32b8bed9c905b.jpg",
+      "https://telegra.ph/file/047f8bf46f551593eb508.jpg",
+      "https://telegra.ph/file/b20ae7c39a1def7c20c2e.jpg",
+      "https://telegra.ph/file/1f6120f20477589316652.jpg",
 )
 
-MIKU_N_IMG = "https://telegra.ph/file/47198838c08aabffbbab7.jpg"
+TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` \n*Do you Like me?*", "*Hey* [{}](tg://settings/) *I'm here for you from* `{}`", "*Hey* [{}](tg://settings/), *I'm alive From:* `{}`", )
 
-DONATE_STRING = """No need i am  Rich Also No Donation Needed! Just Join Our Support @CrowdStrikeChat"""
+MIKU_N_IMG = "https://telegra.ph/file/1f6120f20477589316652.jpg"
+
+DONATE_STRING = """иσ ι иєє∂ ι ¢αи ℓινє ωιтнσυт αиу ∂σиαтισи, ѕтιℓℓ ιи ∂σиαтισи נυѕт נσιи συя [¢нαт](t.me/CrowdStrikeChat)"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -128,7 +148,6 @@ USER_INFO = []
 DATA_IMPORT = []
 DATA_EXPORT = []
 CHAT_SETTINGS = {}
-GDPR = []
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
@@ -158,9 +177,6 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__import_data__"):
         DATA_IMPORT.append(imported_module)
-       
-    if hasattr(imported_module, "__gdpr__"):
-        GDPR.append(imported_module)
 
     if hasattr(imported_module, "__export_data__"):
         DATA_EXPORT.append(imported_module)
@@ -231,10 +247,9 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                random.choice(NAKANO_IMG),
+                random.choice(MIKU_IMG),
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
-                    escape_markdown(context.bot.first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),                        
@@ -245,7 +260,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-                random.choice(MIKU_IMG), caption= "*Hey {}, I'm Alive Now, Till My Love Comes 💝 Alive stats:* `{}`".format(
+                random.choice(NAKANO_IMG), caption=random.choice(TEXXT).format(
                 first_name,
                 uptime
             ),
@@ -255,10 +270,10 @@ def start(update: Update, context: CallbackContext):
                 [
                   [                  
                        InlineKeyboardButton(
-                             text="⍨ Support",
+                             text="👥 Support",
                              url=f"https://t.me/CrowdStrikeChat"),
                        InlineKeyboardButton(
-                             text="⍨ Updates",
+                             text="📢 Updates",
                              url="https://t.me/CrowdXStrike")
                      ] 
                 ]
@@ -351,6 +366,70 @@ def help_button(update, context):
 
 
 @run_async
+def cutiepii_callback_data(update, context):
+    query = update.callback_query
+    bot = context.bot
+    uptime = get_readable_time((time.time() - StartTime))
+    if query.data == "cutiepii_":
+        query.message.edit_text(
+            text="""CallBackQueriesData Here""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="[► Back ◄]", callback_data="cutiepii_back")
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "cutiepii_back":
+        first_name = update.effective_user.first_name
+        query.message.edit_text(
+                SECOND_START_MSG.format(
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buutons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=5,
+                disable_web_page_preview=False,
+        )
+
+@run_async
+def cutiipii_callback_data(update, context):
+    query = update.callback_query
+    bot = context.bot
+    uptime = get_readable_time((time.time() - StartTime))
+    if query.data == "cutiipii_":
+        query.message.edit_text(
+            text="""CallBackQueriesData Here""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="[► Back ◄]", callback_data="cutiipii_back")
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "cutiipii_back":
+        first_name = update.effective_user.first_name
+        query.message.delete()(
+                SECOND_START_MSG.format(
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buutons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=5,
+                disable_web_page_preview=False,
+        )
+
+@run_async
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
     args = update.effective_message.text.split(None, 1)
@@ -360,7 +439,7 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_photo(
-            MIKU_N_IMG, f"Oh Darling, Click the Button Below to get help of {module.capitalize()}",
+            MIKU_N_IMG, f"Oh Hey, Click the Button Below to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="click here",
@@ -370,11 +449,11 @@ def get_help(update: Update, context: CallbackContext):
             return
 
         update.effective_message.reply_photo(
-            MIKU_N_IMG, caption= "Oh Darling, Click the Button Below to get the list of possible commands.",
+            MIKU_N_IMG, caption= "Oh Hey, Click the Button Below to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/NezukoKamadoXBot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/DabiXBot?start=help")
                   ]
                 ]
             ),
@@ -582,10 +661,15 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am Alive Now, My Tanjiro Will come to Help Me[.](https://telegra.ph/file/0312ed329b569aec80a90.jpg)", parse_mode=ParseMode.MARKDOWN) 
+            dispatcher.bot.sendMessage(
+                f"@TRCrazyBots", 
+                f"""Dabi Started! Working Fine For Status, Click /start And /help For More Info.""",
+                parse_mode=ParseMode.MARKDOWN
+            )
         except Unauthorized:
             LOGGER.warning(
-                "Bot isnt able to send message to support_chat, go and check!")
+                "Bot isnt able to send message to support_chat, go and check!"
+            )
         except BadRequest as e:
             LOGGER.warning(e.message)
 
@@ -600,6 +684,8 @@ def main():
     settings_callback_handler = CallbackQueryHandler(
         settings_button, pattern=r"stngs_")
 
+    about_callback_handler = CallbackQueryHandler(cutiepii_callback_data, pattern=r"cutiepii_")
+    miku_callback_handler = CallbackQueryHandler(cutiipii_callback_data, pattern=r"cutiipii_")
     donate_handler = CommandHandler("donate", donate)
     migrate_handler = MessageHandler(Filters.status_update.migrate,
                                      migrate_chats)
@@ -609,6 +695,8 @@ def main():
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
+    dispatcher.add_handler(miku_callback_handler)
+    dispatcher.add_handler(about_callback_handler)
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
@@ -627,7 +715,7 @@ def main():
 
     else:
         LOGGER.info("Using long polling.")
-        updater.start_polling(timeout=15, read_latency=4, clean=True)
+        updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
 
     if len(argv) not in (1, 3, 4):
         telethn.disconnect()
