@@ -37,12 +37,12 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             is_kuki = sql.rem_kuki(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"Nezuko AI Disabled\n"
+                f"DabiX AI Disabled\n"
                 f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             )
         else:
             update.effective_message.edit_text(
-                "Nezuko Kuki Chatbot Disable By {}.".format(mention_html(user.id, user.first_name)),
+                "DabiX Chatbot Disable By {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
@@ -62,12 +62,12 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             is_kuki = sql.set_kuki(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
-                f"Nezuko Kuki AI Enable\n"
+                f"DabiX AI Enable\n"
                 f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             )
         else:
             update.effective_message.edit_text(
-                "Nezuko Kuki Chatbot Enable By {}.".format(mention_html(user.id, user.first_name)),
+                "DabiX Chatbot Enable By {}.".format(mention_html(user.id, user.first_name)),
                 parse_mode=ParseMode.HTML,
             )
 
@@ -85,7 +85,7 @@ def kuki(update: Update, context: CallbackContext):
             callback_data="add_chat({})")],
        [
         InlineKeyboardButton(
-            text="❎ Disable",
+            text="⛔️ Disable",
             callback_data="rm_chat({})")]])
     message.reply_text(
         msg,
@@ -116,7 +116,7 @@ def addkuki(update: Update, context: CallbackContext):
         if not kuki_message(context, message):
             return
         Message = message.text
-        bot.send_chat_action(chat_id, action="typing")
+        bot.send_chat_action(chat_id, action="DabiX ~ Typing")
         kukiurl = requests.get('https://www.kukiapi.xyz/api/apikey=KUKIIbF11kE8r/mrjoker/kavinduaj/message='+Message)
         Kuki = json.loads(kukiurl.text)
         kuki = Kuki['reply']
@@ -125,7 +125,7 @@ def addkuki(update: Update, context: CallbackContext):
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
-    text = "<b>Nezuko Enabled Chats</b>\n"
+    text = "<b>DabiX Enabled Chats</b>\n"
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
@@ -138,7 +138,7 @@ def list_all_chats(update: Update, context: CallbackContext):
     update.effective_message.reply_text(text, parse_mode="HTML")
 
 
-CHATBOTK_HANDLER = CommandHandler("addkuki", kuki)#, run_async=True)
+CHATBOTK_HANDLER = CommandHandler("dabixchat", kuki)#, run_async=True)
 ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat")
 RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat")
 CHATBOT_HANDLER = MessageHandler(
