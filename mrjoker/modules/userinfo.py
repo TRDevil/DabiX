@@ -1,5 +1,3 @@
-
-
 import html
 import re
 import os
@@ -175,7 +173,6 @@ def get_id(update: Update, context: CallbackContext):
     else:
         msg.reply_text(
             f"This group's id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
-            f"Your id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML,
         )
 
 
