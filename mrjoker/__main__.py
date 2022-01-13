@@ -55,7 +55,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hᴇʟʟᴏ [{}](tg://settings/)*!*
-◈ I'ᴍ ∂αвι, Mʏ Rᴇᴀʟ Nᴀᴍᴇ Tᴏʏᴀ Tᴏᴅᴏʀᴏᴋɪ.
+◈ I'ᴍ ∂αвι, Mʏ Rᴇᴀʟ Nᴀᴍᴇ Tᴏᴅᴏʀᴏᴋɪ.
 ────────────────────────
 ☍ *Uᴘᴛɪᴍᴇ:* `{}`
 ☍ `{}` *Usᴇʀs, Aᴄʀᴏss* `{}` *Cʜᴀᴛs*
