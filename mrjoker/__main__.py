@@ -54,35 +54,29 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hᴇʟʟᴏ [{}](tg://settings/)*!*
-◈ I'ᴍ ∂αвι, Mʏ Rᴇᴀʟ Nᴀᴍᴇ Tᴏᴅᴏʀᴏᴋɪ.
-────────────────────────
-☍ *Uᴘᴛɪᴍᴇ:* `{}`
-☍ `{}` *Usᴇʀs, Aᴄʀᴏss* `{}` *Cʜᴀᴛs*
-────────────────────────
-➢ Cʟɪᴄᴋ Tʜᴇ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Tᴏ Cʜᴇᴄᴋ Mʏ Cᴏᴍᴍᴀɴᴅs.
+**ʜᴇʟʟᴏ [{}](tg://settings/)!**
+ɪ'ᴍ [sᴇʟᴇɴ ᴛᴀᴛsᴜᴋɪ](https://t.me/SelenXBot), ɪ ᴀᴍ ɴᴇᴡ ɢᴇɴ ʙᴏᴛ ᴍᴀɴʏ ᴡɪᴛʜ ᴀᴍᴀᴢɪɴɢ ғᴇᴀᴛᴜʀᴇs
+ᴇɴᴊᴏʏ ᴡɪᴛʜ ᴍᴀɴʏ ғᴜɴ ᴀɴᴅ ᴍᴀɴʏ ᴄᴏᴍᴍᴀɴᴅs. ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs
+ᴀɴᴅ ᴍʏ ᴍᴀɢɪᴄs ᴀʟsᴏ ᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ᴘᴍ sᴏᴍᴇ ᴄᴏᴍᴍᴀɴᴅs!
 """
 
 buttons = [
     [
                         InlineKeyboardButton(
-                            text="⇱ Sυммσи мє ⇲",
-                            url="https://t.me/DabiXBot?startgroup=true"),
+                            text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘs",
+                            url="https://t.me/SelenXBot?startgroup=true"),
                     ],
                    [                  
                        InlineKeyboardButton(
-                             text="👥 Support",
-                             url=f"https://t.me/CrowdStrikeChat"),
+                             text="sᴜᴘᴘᴏʀᴛ",
+                             url=f"https://t.me/NovusSupport"),
                        InlineKeyboardButton(
-                             text="📢 Updates",
-                             url="https://t.me/CrowdXStrike"),
-                      InlineKeyboardButton(
-                             text="🌐 Network",
-                             url="https://t.me/YuichiroNetwork")
+                             text="ᴜᴘᴅᴀᴛᴇs",
+                             url="https://t.me/NovusUpdates")
                      ],
                     [
-                        InlineKeyboardButton(text="🔐 Help", url="https://t.me/DabiXBot?start=help"),
-                        InlineKeyboardButton(text="☑️ TR Bots Chat", url="https://t.me/TRCrazyBots"),
+                        InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/SelenXBot?start=help"),
+                        InlineKeyboardButton(text="ʟᴏɢs", url="https://t.me/HawokLogs"),
                     ], 
     ]
 
@@ -95,7 +89,7 @@ buutons = [
     [
                         InlineKeyboardButton(
                             text="Add Me ➕",
-                            url="https://t.me/DabiXBot?startgroup=true"),
+                            url="https://t.me/SelenXBot?startgroup=true"),
                     ],
                    [
                         InlineKeyboardButton(
@@ -118,21 +112,7 @@ HELP_STRINGS = """
     dispatcher.bot.first_name,""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
-NAKANO_IMG = (
-      "https://telegra.ph/file/2a7cf166e2e69d6121a2b.jpg",
-      "https://telegra.ph/file/9594a438fa2b9be1c1375.jpg",
-      "https://telegra.ph/file/fdfb8dd4df36700e0ba06.jpg",
-      "https://telegra.ph/file/f17124f1d5c96e6d1a825.jpg",
-      "https://telegra.ph/file/1f6120f20477589316652.jpg",
-)
-
-MIKU_IMG = (
-      "https://telegra.ph/file/241928efae7a97ed33498.jpg",
-      "https://telegra.ph/file/65a170ce32b8bed9c905b.jpg",
-      "https://telegra.ph/file/047f8bf46f551593eb508.jpg",
-      "https://telegra.ph/file/b20ae7c39a1def7c20c2e.jpg",
-      "https://telegra.ph/file/1f6120f20477589316652.jpg",
-)
+SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
 
 TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` \n*Do you Like me?*", "*Hey* [{}](tg://settings/) *I'm here for you from* `{}`", "*Hey* [{}](tg://settings/), *I'm alive From:* `{}`", )
 
@@ -251,7 +231,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                random.choice(MIKU_IMG),
+                SELEN_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
@@ -264,7 +244,7 @@ def start(update: Update, context: CallbackContext):
     else:
         first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-                random.choice(NAKANO_IMG), caption=random.choice(TEXXT).format(
+                SELEN_IMG, caption=random.choice(TEXXT).format(
                 first_name,
                 uptime
             ),
@@ -443,7 +423,7 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_photo(
-            MIKU_N_IMG, f"Oh Hey, Click the Button Below to get help of {module.capitalize()}",
+            SELEN_IMG, f"Oh Hey, Click the Button Below to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="click here",
@@ -453,7 +433,7 @@ def get_help(update: Update, context: CallbackContext):
             return
 
         update.effective_message.reply_photo(
-            MIKU_N_IMG, caption= "Oh Hey, Click the Button Below to get the list of possible commands.",
+            SELEN_IMG, caption= "Oh Hey, Click the Button Below to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
