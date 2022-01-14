@@ -100,8 +100,6 @@ def hpmanager(user):
     # Bad status effects:
     # gbanned users will always have 5% HP from max HP
     # Example: If HP is 100 but gbanned
-    # Available HP is 5% of 100 = 5HP
-
     else:
         new_hp = no_by_per(total_hp, 5)
 
