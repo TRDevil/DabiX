@@ -7,7 +7,7 @@ import random
 import re
 import sys
 import traceback
-import mrjoker.modules.sql.users_sql as sql
+import EmikoRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
@@ -88,8 +88,31 @@ PM_START_TEXT = """
 ᴀɴᴅ ᴍʏ ᴍᴀɢɪᴄs ᴀʟsᴏ ᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ᴘᴍ sᴏᴍᴇ ᴄᴏᴍᴍᴀɴᴅs![.](https://telegra.ph/file/05280d3c2c828928d4852.jpg)
 """
 
-SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
+STICKERS = ( 
+"CAADBQADwgcAAhDTuVao3zXGpqmgSwI",
+"CAADBQAD1wQAAgHwuVZvKOAh8R6-_wI",
+"CAADBQADyQQAAmbCuVZEHaKLMVyulwI",
+"CAADBQADzwQAAvGXuFZy9XEkudQyEwI",
+"CAADBQADzwgAAg64uFbHJ1Goa4whzwI",
+"CAADBQADJgQAAjo7YFXk87Ts4hj4QQI",
+"CAADBQADHgMAAuZpWFVP3xe41_MhhQI",
+"CAADBQADygQAAiTVUVXjOiNJkeCtuQI",
+"CAADBQADfAMAAjqaUFXmW4T4TTh-tgI",
+"CAADBQADHwQAAmqFUFUCNdqjnQm6mAI",
+"CAADBQADvgMAAio7SVWmxpQupV15rAI",
+"CAADBQADVAQAAtGtYFQK8QPnF5OAgQI",
+"CAADBQADXQQAAuX4WVQicAUeUucJigI",
+"CAADBQADtwMAAotLQFSbGBcviM0U5AI",
+"CAADBQADVAQAAu81QFSnjCbTLUPS4wI",
+"CAADBQAD2gUAAt7pQFQF4nnNO2LCfgI",
+"CAADBQAD3gQAAgaKOVRlAAFG4E38MssC",
+"CAADBQAD4wQAAie7OFQ6YyEl-SUPyAI",
+"CAADBQAD-AQAAoCcMVRps85mmyc3eAI",
+"CAADBQADvwQAAp_wOVQ18DsDgM_YuwI",
+"CAADBQAD1AQAAvE5CFR4STWTZuLpTAI",
+)
 
+STARTG_VID = "https://telegra.ph/file/027053d6dd8510fe30adf.mp4"
 
 buttons = [
     [
@@ -139,7 +162,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("mrjoker.modules." + module_name)
+    imported_module = importlib.import_module("EmikoRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -225,6 +248,23 @@ def start(update: Update, context: CallbackContext):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
+        else:
+            update.effective_message.reply_sticker(
+                random.choice(STICKERS),
+                timeout=60,
+            )
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_text(
+                PM_START_TEXT.format(
+                    escape_markdown(context.bot.first_name),
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),                        
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+            )
     else:
         update.effective_message.reply_video(
             STARTG_VID, caption= "Hᴇʏ, Sᴄᴏʀʙᴜɴɴʏ Is Hᴇʀᴇ,Cᕼᴇᴄᴋ Mᴇ Oᴜᴛ  Jᴏʜɴ Oᴜʀ Cᕼᴀɴɴᴇʟs Fᴏʀ Mᴏʀᴇ Iɴғᴏ Alive since:<code>{}</code>".format(
@@ -404,25 +444,48 @@ def emiko_about_callback(update, context):
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
                 PM_START_TEXT.format(
+                    escape_markdown(context.bot.first_name),
+                    escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
         )
 
-    elif query.data == "emiko_support":
+    elif query.data == "emiko_admin":
         query.message.edit_text(
-            text="๏ 𝚂𝚌𝚘𝚛𝚋𝚞𝚗𝚗𝚢 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 𝙲𝚑𝚊𝚝𝚜 [🔥](https://telegra.ph//file/4e02b36347d670eeb7696.jpg) "
-             "\n𝙹𝚘𝚒𝚗 𝙰𝚞𝚛 𝙾𝚞𝚛 𝚂𝚞𝚙𝚙𝚘𝚛𝚝𝚜 𝙵𝚘𝚛 𝙼𝚘𝚛𝚎 𝙱𝚘𝚝𝚜 𝙸𝚗𝚏𝚘...",
+            text="๏ 𝚂𝚌𝚘𝚛𝚋𝚞𝚗𝚗𝚢 𝙽𝚎𝚝𝚠𝚘𝚛𝚔𝚜 [🔥](https://telegra.ph//file/57204c4b4acd980bec791.jpg) "
+             "\n𝙹𝚘𝚒𝚗 𝙰𝚞𝚛 𝙾𝚞𝚛 𝙽𝚎𝚝𝚠𝚘𝚛𝚔𝚜 𝙵𝚘𝚛 𝙼𝚘𝚛𝚎 𝙱𝚘𝚝𝚜 𝙸𝚗𝚏𝚘...",
              parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="⚔Uɴɪᴛᴇᴅ Sᴜᴘᴘᴏʀᴛ", url="t.me/UnitedSupport"),
-                    InlineKeyboardButton(text="👊🏻CʀᴏᴡᴅXSᴛʀɪᴋᴇ", url="t.me/CrowdStrikeChat"),
+                    InlineKeyboardButton(text="🦄Pᴇɢᴀsᴜs Nᴇᴛᴡᴏʀᴋ", url="t.me/PegasusXteam"),
+                    InlineKeyboardButton(text="🤺Yᴜɪᴄʜɪʀᴏ Nᴇᴛᴡᴏʀᴋ", url="t.me/YuichiroNetwork"),
                  ],
                  [
                     InlineKeyboardButton(text="⬅️Gᴏ Bᴀᴄᴋ", callback_data="emiko_back"),
+              ]
+              ]
+              ),
+        
+        )
+    elif query.data == "emiko_support":
+        query.message.edit_text(
+            text="๏ SelenX's Support And Updates.[~](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg)"
+             "\nJoin Now",
+             parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="⬅️ Gᴏ Bᴀᴄᴋ", callback_data="emiko_back"),
                ]
               ]
             ),
