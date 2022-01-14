@@ -155,6 +155,7 @@ IMPORTED = {}
 MIGRATEABLE = []
 HELPABLE = {}
 STATS = []
+GDPR = []
 USER_INFO = []
 DATA_IMPORT = []
 DATA_EXPORT = []
@@ -183,7 +184,10 @@ for module_name in ALL_MODULES:
 
     if hasattr(imported_module, "__user_info__"):
         USER_INFO.append(imported_module)
-
+        
+    if hasattr(imported_module, "__gdpr__"):
+        GDPR.append(imported_module)
+        
     if hasattr(imported_module, "__import_data__"):
         DATA_IMPORT.append(imported_module)
 
