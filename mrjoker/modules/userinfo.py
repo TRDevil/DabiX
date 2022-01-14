@@ -42,7 +42,6 @@ from mrjoker.modules.helper_funcs.chat_status import sudo_plus
 from mrjoker.modules.helper_funcs.extraction import extract_user
 from mrjoker import telethn
 
-@run_async
 def no_by_per(totalhp, percentage):
     """
     rtype: num of `percentage` from total
@@ -50,7 +49,7 @@ def no_by_per(totalhp, percentage):
     """
     return totalhp * percentage / 100
 
-@run_async
+
 def get_percentage(totalhp, earnedhp):
     """
     rtype: percentage of `totalhp` num
@@ -61,8 +60,7 @@ def get_percentage(totalhp, earnedhp):
     per_of_totalhp = 100 - matched_less * 100.0 / totalhp
     per_of_totalhp = str(int(per_of_totalhp))
     return per_of_totalhp
-    
-@run_async
+
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -87,7 +85,6 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
-@run_async
 def hpmanager(user):
     total_hp = (get_user_num_chats(user.id) + 10) * 10
 
@@ -131,12 +128,12 @@ def hpmanager(user):
         "percentage": get_percentage(total_hp, new_hp),
     }
 
-@run_async
+
 def make_bar(per):
     done = min(round(per / 10), 10)
     return "■" * done + "□" * (10 - done)
 
-@run_async
+
 def get_id(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -215,7 +212,7 @@ async def group_info(event) -> None:
     await event.reply(msg)
 
 
-@run_async
+
 def gifid(update: Update, context: CallbackContext):
     msg = update.effective_message
     if msg.reply_to_message and msg.reply_to_message.animation:
@@ -226,7 +223,7 @@ def gifid(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
 
-@run_async
+
 def info(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -391,7 +388,7 @@ def info(update: Update, context: CallbackContext):
 
     rep.delete()
 
-@run_async
+
 def about_me(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -414,7 +411,7 @@ def about_me(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text("There isnt one, use /setme to set one.")
 
-@run_async
+
 def set_about_me(update: Update, context: CallbackContext):
     message = update.effective_message
     user_id = message.from_user.id
@@ -446,7 +443,6 @@ def set_about_me(update: Update, context: CallbackContext):
                 ),
             )
 
-@run_async
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
     stats = "❃ Current Stats Of **SelenX** ❃\n" + "\n".join([mod.__stats__() for mod in STATS])
@@ -457,7 +453,7 @@ def stats(update: Update, context: CallbackContext):
         disable_web_page_preview=True
    )
         
-@run_async        
+        
 def about_bio(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     message = update.effective_message
@@ -482,7 +478,7 @@ def about_bio(update: Update, context: CallbackContext):
             "You haven't had a bio set about yourself yet!",
         )
 
-@run_async
+
 def set_about_bio(update: Update, context: CallbackContext):
     message = update.effective_message
     sender_id = update.effective_user.id
@@ -528,7 +524,7 @@ def set_about_bio(update: Update, context: CallbackContext):
     else:
         message.reply_text("Reply to someone to set their bio!")
 
-@run_async
+
 def __user_info__(user_id):
     bio = html.escape(sql.get_user_bio(user_id) or "")
     me = html.escape(sql.get_user_me_info(user_id) or "")
@@ -572,19 +568,19 @@ When marked as AFK, any mentions will be replied to with a message stating that 
   - brb <reason>: Same as the afk command, but not a command. 
   
 *What is that health thingy?*
- Come and see [HP System explained]https://t.me/NovusUpdates/11)
+ Come and see [HP System explained](https://t.me/KennedyProject/44)
 """
 
-SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
-GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio)
+SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
+GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, run_async=True)
 
-STATS_HANDLER = CommandHandler(["stats", "statistics"], stats)
-ID_HANDLER = DisableAbleCommandHandler("id", get_id)
-GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid)
-INFO_HANDLER = DisableAbleCommandHandler("info", info)
+STATS_HANDLER = CommandHandler(["stats", "statistics"], stats, run_async=True)
+ID_HANDLER = DisableAbleCommandHandler("id", get_id, run_async=True)
+GIFID_HANDLER = DisableAbleCommandHandler("gifid", gifid, run_async=True)
+INFO_HANDLER = DisableAbleCommandHandler("info", info, run_async=True)
 
-SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me)
-GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me)
+SET_ABOUT_HANDLER = DisableAbleCommandHandler("setme", set_about_me, run_async=True)
+GET_ABOUT_HANDLER = DisableAbleCommandHandler("me", about_me, run_async=True)
 
 dispatcher.add_handler(STATS_HANDLER)
 dispatcher.add_handler(ID_HANDLER)
