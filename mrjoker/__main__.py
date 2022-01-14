@@ -114,7 +114,7 @@ HELP_STRINGS = """
 
 SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
 
-TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` )
+TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}`" )
 
 MIKU_N_IMG = "https://telegra.ph/file/1f6120f20477589316652.jpg"
 
