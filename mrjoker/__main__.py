@@ -410,24 +410,6 @@ def emiko_about_callback(update, context):
                 disable_web_page_preview=False,
         )
 
-    elif query.data == "emiko_admin":
-        query.message.edit_text(
-            text="๏ 𝚂𝚌𝚘𝚛𝚋𝚞𝚗𝚗𝚢 𝙽𝚎𝚝𝚠𝚘𝚛𝚔𝚜 [🔥](https://telegra.ph//file/57204c4b4acd980bec791.jpg) "
-             "\n𝙹𝚘𝚒𝚗 𝙰𝚞𝚛 𝙾𝚞𝚛 𝙽𝚎𝚝𝚠𝚘𝚛𝚔𝚜 𝙵𝚘𝚛 𝙼𝚘𝚛𝚎 𝙱𝚘𝚝𝚜 𝙸𝚗𝚏𝚘...",
-             parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="🦄Pᴇɢᴀsᴜs Nᴇᴛᴡᴏʀᴋ", url="t.me/PegasusXteam"),
-                    InlineKeyboardButton(text="🤺Yᴜɪᴄʜɪʀᴏ Nᴇᴛᴡᴏʀᴋ", url="t.me/YuichiroNetwork"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="⬅️Gᴏ Bᴀᴄᴋ", callback_data="emiko_back"),
-              ]
-              ]
-              ),
-        
-        )
     elif query.data == "emiko_support":
         query.message.edit_text(
             text="๏ 𝚂𝚌𝚘𝚛𝚋𝚞𝚗𝚗𝚢 𝚂𝚞𝚙𝚙𝚘𝚛𝚝 𝙲𝚑𝚊𝚝𝚜 [🔥](https://telegra.ph//file/4e02b36347d670eeb7696.jpg) "
