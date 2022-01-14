@@ -75,14 +75,14 @@ buttons = [
                              url="https://t.me/NovusUpdates")
                      ],
                     [
-                        InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/SelenXBot?start=help"),
+                        InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", callback_data="help_back"),
                         InlineKeyboardButton(text="ʟᴏɢs", url="https://t.me/HawokLogs"),
                     ], 
     ]
 
 SECOND_START_MSG = """
 *Hᴇʟʟᴏ {}!,*
-◈ *Sᴇʟᴇᴄᴛ Aʟʟ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Fᴜʟʟ Hᴇʟᴘ Aɴᴅ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Aᴅᴅ Mᴇ* [😉](https://telegra.ph/file/1f6120f20477589316652.jpg) 
+◈ *Sᴇʟᴇᴄᴛ Aʟʟ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Fᴜʟʟ Hᴇʟᴘ Aɴᴅ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Aᴅᴅ Mᴇ* [😉](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg) 
 """
 
 buutons = [
@@ -101,20 +101,20 @@ buutons = [
 
                     
 HELP_STRINGS = """
-[► {} Help ◄]
+[► ѕєℓєиχ ◄]
 ────────────────────────
 ➣ Tᴏ ᴍᴀᴋᴇ ᴍᴇ ғᴜɴᴄᴛɪᴏɴᴀʟ, ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ɪ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ.
-➣ /start[:](https://telegra.ph/file/047f8bf46f551593eb508.jpg) Sᴛᴀʀᴛs ᴍᴇ! Yᴏᴜ'ᴠᴇ ᴘʀᴏʙᴀʙʟʏ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ ᴛʜɪs.
-➣ Fᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇ ᴏʀ ғɪɴᴅ ᴀɴʏ ʙᴜɢs ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ɪᴛ ɪɴ [Sᴜᴘᴘᴏʀᴛ](http://t.me/CrowdStrikeChat) Oʀ [Hᴇʀᴇ](http://t.me/DreamerNo1)
+➣ /start[:](https://telegra.ph/file/598d4a710a100d3892727.jpg) Sᴛᴀʀᴛs ᴍᴇ! Yᴏᴜ'ᴠᴇ ᴘʀᴏʙᴀʙʟʏ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ ᴛʜɪs.
+➣ Fᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇ ᴏʀ ғɪɴᴅ ᴀɴʏ ʙᴜɢs ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ɪᴛ ɪɴ [Sᴜᴘᴘᴏʀᴛ](http://t.me/NovusSupport) Oʀ [Hᴇʀᴇ](http://t.me/DreamerNo1)
 ────────────────────────
-©️ Dabi Bot | 2021 - 2022 | [Devil](t.me/DreamerNo1)
+©️ SelenX | 2021 - 2022 | [Devil](t.me/DreamerNo1)
 """.format(
     dispatcher.bot.first_name,""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
 SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
 
-TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` \n*Do you Like me?*", "*Hey* [{}](tg://settings/) *I'm here for you from* `{}`", "*Hey* [{}](tg://settings/), *I'm alive From:* `{}`", )
+TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` 
 
 MIKU_N_IMG = "https://telegra.ph/file/1f6120f20477589316652.jpg"
 
@@ -437,7 +437,7 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/DabiXBot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/SelenXBot?start=help")
                   ]
                 ]
             ),
@@ -646,8 +646,8 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@TRCrazyBots", 
-                f"""Dabi Started! Working Fine For Status, Click /start And /help For More Info.""",
+                f"@NovusSupport", 
+                f"""SelenX Started! Working Fine For Status, Click /start And /help For More Info.""",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
