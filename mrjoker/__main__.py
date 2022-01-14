@@ -237,11 +237,9 @@ def start(update: Update, context: CallbackContext):
                              text="sᴜᴘᴘᴏʀᴛ", callback_data="selen_su"),
                        InlineKeyboardButton(
                              text="ᴜᴘᴅᴀᴛᴇs", callback_data="selen_su")
-                     ],
-                    [
-                ]
-            ),
-        )
+                     ]
+                  ]
+              )
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
