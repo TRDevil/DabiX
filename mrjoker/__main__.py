@@ -317,23 +317,6 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")))
-            
-                elif query.data == "selen_su":
-        query.message.edit_text(
-            text="๏ SelenX's Support And Updates.[~](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg)",
-             parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="⬅️ Gᴏ Bᴀᴄᴋ", callback_data="cutiipii_back"),
-               ]
-              ]
-            ),
-        )
 
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
