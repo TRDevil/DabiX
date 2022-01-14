@@ -57,7 +57,7 @@ PM_START_TEXT = """
 **ʜᴇʟʟᴏ [{}](tg://settings/)!**
 ɪ'ᴍ [sᴇʟᴇɴ ᴛᴀᴛsᴜᴋɪ](https://t.me/SelenXBot), ɪ ᴀᴍ ɴᴇᴡ ɢᴇɴ ʙᴏᴛ ᴍᴀɴʏ ᴡɪᴛʜ ᴀᴍᴀᴢɪɴɢ ғᴇᴀᴛᴜʀᴇs
 ᴇɴᴊᴏʏ ᴡɪᴛʜ ᴍᴀɴʏ ғᴜɴ ᴀɴᴅ ᴍᴀɴʏ ᴄᴏᴍᴍᴀɴᴅs. ᴊᴜsᴛ ᴀᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs
-ᴀɴᴅ ᴍʏ ᴍᴀɢɪᴄs ᴀʟsᴏ ᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ᴘᴍ sᴏᴍᴇ ᴄᴏᴍᴍᴀɴᴅs!
+ᴀɴᴅ ᴍʏ ᴍᴀɢɪᴄs ᴀʟsᴏ ᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ᴘᴍ sᴏᴍᴇ ᴄᴏᴍᴍᴀɴᴅs![.](https://telegra.ph/file/05280d3c2c828928d4852.jpg)
 """
 
 buttons = [
@@ -69,10 +69,10 @@ buttons = [
                    [                  
                        InlineKeyboardButton(
                              text="sᴜᴘᴘᴏʀᴛ",
-                             url=f"https://t.me/NovusSupport"),
+                             callback_data="selen_su"),
                        InlineKeyboardButton(
                              text="ᴜᴘᴅᴀᴛᴇs",
-                             url="https://t.me/NovusUpdates")
+                             callback_data="selen_su")
                      ],
                     [
                         InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/SelenXBot?start=help"),
@@ -82,7 +82,7 @@ buttons = [
 
 SECOND_START_MSG = """
 *Hᴇʟʟᴏ {}!,*
-◈ *Sᴇʟᴇᴄᴛ Aʟʟ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Fᴜʟʟ Hᴇʟᴘ Aɴᴅ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Aᴅᴅ Mᴇ* [😉](https://telegra.ph/file/1f6120f20477589316652.jpg) 
+◈ *Sᴇʟᴇᴄᴛ Aʟʟ Cᴏᴍᴍᴀɴᴅs Fᴏʀ Fᴜʟʟ Hᴇʟᴘ Aɴᴅ Dᴏɴ'ᴛ Fᴏʀɢᴇᴛ Tᴏ Aᴅᴅ Mᴇ* [😉](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg) 
 """
 
 buutons = [
@@ -101,22 +101,18 @@ buutons = [
 
                     
 HELP_STRINGS = """
-[► {} Help ◄]
+[► ѕєℓєиχ ◄]
 ────────────────────────
 ➣ Tᴏ ᴍᴀᴋᴇ ᴍᴇ ғᴜɴᴄᴛɪᴏɴᴀʟ, ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ɪ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ʀɪɢʜᴛs ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ.
-➣ /start[:](https://telegra.ph/file/047f8bf46f551593eb508.jpg) Sᴛᴀʀᴛs ᴍᴇ! Yᴏᴜ'ᴠᴇ ᴘʀᴏʙᴀʙʟʏ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ ᴛʜɪs.
-➣ Fᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇ ᴏʀ ғɪɴᴅ ᴀɴʏ ʙᴜɢs ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ɪᴛ ɪɴ [Sᴜᴘᴘᴏʀᴛ](http://t.me/CrowdStrikeChat) Oʀ [Hᴇʀᴇ](http://t.me/DreamerNo1)
+➣ /start[:](https://telegra.ph/file/598d4a710a100d3892727.jpg) Sᴛᴀʀᴛs ᴍᴇ! Yᴏᴜ'ᴠᴇ ᴘʀᴏʙᴀʙʟʏ ᴀʟʀᴇᴀᴅʏ ᴜsᴇᴅ ᴛʜɪs.
+➣ Fᴀᴄɪɴɢ ᴀɴʏ ɪssᴜᴇ ᴏʀ ғɪɴᴅ ᴀɴʏ ʙᴜɢs ɪɴ ᴀɴʏ ᴄᴏᴍᴍᴀɴᴅ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ʀᴇᴘᴏʀᴛ ɪᴛ ɪɴ [Sᴜᴘᴘᴏʀᴛ](http://t.me/NovusSupport) Oʀ [Hᴇʀᴇ](http://t.me/DreamerNo1)
 ────────────────────────
-©️ Dabi Bot | 2021 - 2022 | [Devil](t.me/DreamerNo1)
+©️ SelenX | 2021 - 2022 | [Devil](t.me/DreamerNo1)
 """.format(
     dispatcher.bot.first_name,""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
 SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
-
-TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}` \n*Do you Like me?*", "*Hey* [{}](tg://settings/) *I'm here for you from* `{}`", "*Hey* [{}](tg://settings/), *I'm alive From:* `{}`", )
-
-MIKU_N_IMG = "https://telegra.ph/file/1f6120f20477589316652.jpg"
 
 DONATE_STRING = """иσ ι иєє∂ ι ¢αи ℓινє ωιтнσυт αиу ∂σиαтισи, ѕтιℓℓ ιи ∂σиαтισи נυѕт נσιи συя [¢нαт](t.me/CrowdStrikeChat)"""
 
@@ -228,38 +224,21 @@ def start(update: Update, context: CallbackContext):
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
-        else:
-            first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
-                SELEN_IMG,
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),                        
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=5,
-                   )
     else:
-        first_name = update.effective_user.first_name
         update.effective_message.reply_photo(
-                SELEN_IMG, caption=random.choice(TEXXT).format(
-                first_name,
-                uptime
+            SELEN_IMG, caption= "**{}** is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
+                BOT_NAME, uptime
             ),
-            
-            parse_mode=ParseMode.MARKDOWN,
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
-                  [                  
+                   [                  
                        InlineKeyboardButton(
-                             text="👥 Support",
-                             url=f"https://t.me/CrowdStrikeChat"),
+                             text="sᴜᴘᴘᴏʀᴛ", callback_data="selen_su"),
                        InlineKeyboardButton(
-                             text="📢 Updates",
-                             url="https://t.me/CrowdXStrike")
-                     ] 
+                             text="ᴜᴘᴅᴀᴛᴇs", callback_data="selen_su")
+                     ],
+                    [
                 ]
             ),
         )
@@ -340,6 +319,23 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")))
+            
+                elif query.data == "selen_su":
+        query.message.edit_text(
+            text="๏ SelenX's Support And Updates.[~](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg)",
+             parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="⬅️ Gᴏ Bᴀᴄᴋ", callback_data="cutiipii_back"),
+               ]
+              ]
+            ),
+        )
 
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
@@ -437,7 +433,7 @@ def get_help(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text=" Click here", url="https://t.me/DabiXBot?start=help")
+                  InlineKeyboardButton(text=" Click here", url="https://t.me/SelenXBot?start=help")
                   ]
                 ]
             ),
@@ -647,7 +643,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@TRCrazyBots", 
-                f"""Dabi Started! Working Fine For Status, Click /start And /help For More Info.""",
+                f"""Selen Started! Working Fine For Status, Click /start And /help For More Info.""",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
