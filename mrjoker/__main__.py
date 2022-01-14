@@ -238,7 +238,6 @@ def start(update: Update, context: CallbackContext):
                        InlineKeyboardButton(
                              text="ᴜᴘᴅᴀᴛᴇs", callback_data="selen_su")
                      ],
-                    [
                 ]
             ),
         )
