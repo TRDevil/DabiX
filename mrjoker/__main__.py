@@ -67,8 +67,12 @@ buttons = [
                             url="https://t.me/SelenXBot?startgroup=true"),
                     ],
                    [                  
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
+                       InlineKeyboardButton(
+                             text="sᴜᴘᴘᴏʀᴛ",
+                             callback_data="selen_su"),
+                       InlineKeyboardButton(
+                             text="ᴜᴘᴅᴀᴛᴇs",
+                             callback_data="selen_su")
                      ],
                     [
                         InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/SelenXBot?start=help"),
@@ -219,14 +223,7 @@ def start(update: Update, context: CallbackContext):
 
             elif args[0][1:].isdigit() and "rules" in IMPORTED:
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
-                
-        else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-            )
+
     else:
         update.effective_message.reply_photo(
             SELEN_IMG, caption= "**{}** is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
@@ -236,9 +233,12 @@ def start(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                    [                  
-                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
+                       InlineKeyboardButton(
+                             text="sᴜᴘᴘᴏʀᴛ", callback_data="selen_su"),
+                       InlineKeyboardButton(
+                             text="ᴜᴘᴅᴀᴛᴇs", callback_data="selen_su")
                      ],
+                    [
                 ]
             ),
         )
@@ -319,6 +319,23 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")))
+            
+                elif query.data == "selen_su":
+        query.message.edit_text(
+            text="๏ SelenX's Support And Updates.[~](https://telegra.ph/file/00ee601b5e3d8cd36a72c.jpg)",
+             parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="t.me/NovusSupport"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs", url="t.me/NovusUpdates"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="⬅️ Gᴏ Bᴀᴄᴋ", callback_data="cutiipii_back"),
+               ]
+              ]
+            ),
+        )
 
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
