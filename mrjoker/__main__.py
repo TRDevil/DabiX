@@ -114,6 +114,8 @@ HELP_STRINGS = """
 
 SELEN_IMG = "https://telegra.ph/file/535a717ada4ea95b7a3fd.jpg"
 
+SELENX_IMG = "https://telegra.ph/file/aad885421f8ae917e5446.jpg"
+
 TEXXT = ( "*Hey* [{}](tg://settings/), *As you know I'm alive since:* `{}`", "*Hey* [{}](tg://settings/), *I'm came for you from* `{}`" )
 
 MIKU_N_IMG = "https://telegra.ph/file/1f6120f20477589316652.jpg"
@@ -645,11 +647,17 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(
-                f"@NovusSupport", 
-                f"""SelenX Started! Working Fine For Status, Click /start And /help For More Info.""",
-                parse_mode=ParseMode.MARKDOWN
-            )
+            dispatcher.bot.send_photo(f"@{SUPPORT_CHAT}", SELENX_IMG, caption="*SelenX Started! Working Fine For Status, Click /start And /help For More Info.*", parse_mode=ParseMode.MARKDOWN,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                  [                  
+                       InlineKeyboardButton(
+                             text="[► Summon Me ◄]",
+                             url="https://t.me/MikuXProBot?startgroup=true")
+                     ] 
+                ]
+            ),
+        )
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
