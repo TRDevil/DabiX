@@ -108,4 +108,4 @@ __help__ = """
 🔹`/bassboost` : Reply Your File
 """
 
-__mod_name__ = "Bass Boosted"
+__mod_name__ = "ʙᴀss"
