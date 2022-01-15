@@ -84,4 +84,4 @@ __help__ = """
  🔹 `/cscan` : Reply to a image to scan and improve it's clarity.
 """
 
-__mod_name__ = "Cam Scanner"
+__mod_name__ = "ᴄ-sᴄᴀɴ"
