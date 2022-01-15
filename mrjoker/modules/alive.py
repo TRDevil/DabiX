@@ -382,4 +382,4 @@ dispatcher.add_handler(MOONANIMATION_HANDLER)
 dispatcher.add_handler(EARTHANIMATION_HANDLER)
 dispatcher.add_handler(BRAINANIMATION_HANDLER)
 
-__mod_name__ = "Secret"
+__mod_name__ = "ᴄʟɪᴄᴋ ᴍᴇ"
