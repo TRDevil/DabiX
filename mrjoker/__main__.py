@@ -75,7 +75,7 @@ buttons = [
                              url="https://t.me/NovusUpdates")
                      ],
                     [
-                        InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", callback_data="help_back"),
+                        InlineKeyboardButton(text="ʜᴇʟᴘ ᴍᴇɴᴜ", url="https://t.me/SelenXBot?start=help"),
                         InlineKeyboardButton(text="ʟᴏɢs", url="https://t.me/HawokLogs"),
                     ], 
     ]
