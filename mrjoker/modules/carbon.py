@@ -5,7 +5,7 @@ from mrjoker.utils.errors import capture_err
 from mrjoker.function.carbonfunc import make_carbon
 
 
-@pbot.on_message(filters.command("carbon"))
+@pbot.on_message(filters.command("codit"))
 @capture_err
 async def carbon_func(_, message):
     if not message.reply_to_message:
@@ -24,9 +24,9 @@ async def carbon_func(_, message):
     carbon.close()
 
 __help__ = """
-  🔹 `/carbon` <text> [or reply]
+  🔹 `/codit` <text> [or reply]
   
 Usage: Beautify your code using carbon.now.sh
 """
 
-__mod_name__ = "Carbon"
+__mod_name__ = "ᴄᴀʀʙᴏɴ"
